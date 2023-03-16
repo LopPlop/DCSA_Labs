@@ -1,5 +1,5 @@
 package Models;
 
 public class Point {
-    public int x, y;
+    public double x, y;
 }

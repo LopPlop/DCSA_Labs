@@ -4,10 +4,12 @@ import Abstractions.PictureObj;
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+
+// Описание в классе Chell
+// ты, даун?
 public class Freeman extends PictureObj {
     Image image = new ImageIcon("src/Bin/Pictures/freeman.png").getImage();
     public Freeman(){
@@ -15,17 +17,17 @@ public class Freeman extends PictureObj {
     }
 
     public Freeman(int x, int y, int height, int width) {
-        super();
+        super(x,y,height,width);
     }
 
     @Override
     public void Paint(Graphics g) {
         Graphics2D gr = (Graphics2D)g;
-        gr.drawImage(image, center.x, center.y, height, width, null);
+        gr.drawImage(image, (int)center.x, (int)center.y, height, width, null);
     }
 
     public Freeman(int x, int y){
-        super();
+        super(x,y);
     }
 
     @Override
@@ -35,9 +37,9 @@ public class Freeman extends PictureObj {
             BufferedReader br = new BufferedReader(new FileReader(path));
             String line = br.readLine();
             while(!line.isEmpty()){
-                line = br.readLine();
                 String[] opt = line.split(" ");
                 list.add(new Freeman(Integer.parseInt(opt[0]),Integer.parseInt(opt[1]),Integer.parseInt(opt[2]),Integer.parseInt(opt[3])));
+                line = br.readLine();
             }
         }catch (Exception ex) {
             System.out.println(ex.getMessage());
