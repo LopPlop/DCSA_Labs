@@ -9,15 +9,25 @@ import java.util.ArrayList;
 
 
 // Описание в классе Chell
-// ты, даун?
 public class Freeman extends PictureObj {
     Image image = new ImageIcon("src/Bin/Pictures/freeman.png").getImage();
+
     public Freeman(){
         super();
+        speedDirectionMove.speedX = 1.6;
+        speedDirectionMove.speedY = 1.2;
+    }
+
+    public Freeman(int x, int y){
+        super(x,y);
+        speedDirectionMove.speedX = 1.6;
+        speedDirectionMove.speedY = 1.2;
     }
 
     public Freeman(int x, int y, int height, int width) {
         super(x,y,height,width);
+        speedDirectionMove.speedX = 1.6;
+        speedDirectionMove.speedY = 1.2;
     }
 
     @Override
@@ -26,9 +36,6 @@ public class Freeman extends PictureObj {
         gr.drawImage(image, (int)center.x, (int)center.y, height, width, null);
     }
 
-    public Freeman(int x, int y){
-        super(x,y);
-    }
 
     @Override
     public ArrayList<PictureObj> ReadObjTXT(String path) {

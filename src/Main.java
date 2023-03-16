@@ -1,4 +1,7 @@
 import Models.Freeman;
+import UI.UIMovingObjs;
+
+import javax.swing.*;
 
 public class Main {
     // Вариант 5\6
@@ -9,10 +12,14 @@ public class Main {
     //   изменением значения скорости и
     //   направления
     public static void main(String[] args) {
-        Freeman fr = new Freeman(10,2,100,50);
-        fr.WriteObjTXT("src/Bin/TXT/config.txt");
-        var a = fr.ReadObjTXT("src/Bin/TXT/config.txt");
+        JFrame frame = new JFrame("Клиент-серверное приложение");
+        frame.setSize(1024, 768);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
-        System.out.println(Math.pow(-1, (int)(Math.random() * 2)));
+
+        UIMovingObjs ui = new UIMovingObjs(frame);
+        frame.add(ui);
+        frame.addMouseListener(ui);
     }
 }

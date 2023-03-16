@@ -1,6 +1,7 @@
 package Abstractions;
 
 import Models.Point;
+import Models.SpeedDirectionMove;
 
 import java.awt.*;
 import java.io.*;
@@ -14,14 +15,15 @@ public abstract class PictureObj implements Serializable {
     protected int height, width;
     // Координаты нашего объекта
     protected Point center = new Point();
+    // Направление и скорость движения
+    protected SpeedDirectionMove speedDirectionMove = new SpeedDirectionMove();
 
     public PictureObj(){
         center.x = 0; center.y = 0; this.height = 50; this.width = 120;
     }
 
     public PictureObj(int x, int y){
-        super();
-        center.x = x; center.y = y;
+        center.x = x; center.y = y; this.height = 50; this.width = 120;
     }
 
     public PictureObj(int x, int y, int height, int width){
@@ -52,7 +54,16 @@ public abstract class PictureObj implements Serializable {
     // Чтение из TXT
     public abstract ArrayList<PictureObj> ReadObjTXT(String path);
 
-    public void ChangeCoords(double x, double y){
-        center.x+=x; center.y+=y;
+    public void ChangeDirectionX(double x){
+        speedDirectionMove.speedX*=x;
+    }
+
+    public void ChangeDirectionY(double y){
+        speedDirectionMove.speedY*=y;
+    }
+
+    public void Move(){
+        center.x+= speedDirectionMove.speedX;
+        center.y+= speedDirectionMove.speedY;
     }
 }

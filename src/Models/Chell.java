@@ -13,12 +13,23 @@ public class Chell extends PictureObj {
     // Картинка ♂️FUCKING SLAVE♂️
     Image image = new ImageIcon("src/Bin/Pictures/chell.png").getImage();
 
+
     public Chell(){
         super();
+        speedDirectionMove.speedX = 1.4;
+        speedDirectionMove.speedY = 1.0;
+    }
+
+    public Chell(int x, int y){
+        super(x, y);
+        speedDirectionMove.speedX = 1.4;
+        speedDirectionMove.speedY = 1.0;
     }
 
     public Chell(int x, int y, int height, int width) {
         super(x, y, height, width);
+        speedDirectionMove.speedX = 1.4;
+        speedDirectionMove.speedY = 1.0;
     }
 
     // Отрисовка ♂️FUCKING SLAVE♂️
@@ -27,11 +38,6 @@ public class Chell extends PictureObj {
         Graphics2D gr = (Graphics2D)g;
         gr.drawImage(image, (int)center.x, (int)center.y, height, width, null);
     }
-
-    public Chell(int x, int y){
-        super(x, y);
-    }
-
 
     // Чтение из TXT
     @Override
