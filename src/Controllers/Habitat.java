@@ -10,6 +10,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
+
 public class Habitat {
     // Список объектов
     private ArrayList<PictureObj> list = new ArrayList<>();
@@ -58,12 +59,21 @@ public class Habitat {
 
     private void DrawBG(Graphics g){
         Graphics2D gr = (Graphics2D)g;
-        gr.drawImage(background, 0, 0, 1024, 768, null);
+        gr.drawImage(background, 0, 0, 860, 768, null);
     }
 
     public void HitsObj(Point point){
         for(int i = 0; i < list.size(); i++)
             if(list.get(i).IsPointDiligence(point))
                 list.remove(list.get(i));
+    }
+
+
+    public void SetOBjs(ArrayList<PictureObj> list){
+        this.list = list;
+    }
+
+    public ArrayList<PictureObj> GetObjs(){
+        return this.list;
     }
 }

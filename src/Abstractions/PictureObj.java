@@ -41,14 +41,7 @@ public abstract class PictureObj implements Serializable {
         return false;
     }
 
-    // Запись в TXT
-    public void WriteObjTXT(String path){
-        try {
-            Files.write(Paths.get(path), (center.x + " " + center.y + " " + height + " " + width + "\n").getBytes(), StandardOpenOption.APPEND);
-        }catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+    public abstract void WriteObjTXT(String path);
 
 
     // Чтение из TXT
